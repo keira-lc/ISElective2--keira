@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>JS & jQuery Exercises</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    section { border: 1px solid #eee; padding: 10px; margin: 8px 0; }
+    .highlight { background: yellow; }
+  </style>
+</head>
+<body>
+  <h1>JavaScript & jQuery Exercises</h1>
+
+  <section>
+    <h2>1. Change text of an element</h2>
+    <p id="demo">Original text</p>
+    <button id="btn1">Change (JS)</button> <button id="jq1">Change (jQuery)</button>
+  </section>
+
+  <section>
+    <h2>2. Change background color</h2>
+    <div id="box" style="padding:20px;border:1px solid #ccc">Box</div>
+    <button id="bg-js">JS</button> <button id="bg-jq">jQuery</button>
+  </section>
+
+  <section>
+    <h2>3. Hide element</h2>
+    <p id="demo-hide">This can be hidden</p>
+    <button id="hide-js">Hide (JS)</button> <button id="hide-jq">Hide (jQuery)</button>
+  </section>
+
+  <section>
+    <h2>5. Toggle visibility</h2>
+    <p id="demo-toggle">Toggle me</p>
+    <button id="toggle-jq">Toggle (jQuery)</button>
+  </section>
+
+  <section>
+    <h2>6 / 7 / 8. Add / Remove / Toggle class</h2>
+    <p id="demo-class">Class demo</p>
+    <button id="add-class">Add</button>
+    <button id="remove-class">Remove</button>
+    <button id="toggle-class">Toggle</button>
+  </section>
+
+  <section>
+    <h2>9. Change image source</h2>
+    <img id="myImg" src="https://via.placeholder.com/150" alt="img">
+    <button id="chg-img">Change Image</button>
+  </section>
+
+  <section>
+    <h2>10. Get input value</h2>
+    <input id="name" placeholder="Type name">
+    <button id="get-val">Get value</button>
+  </section>
+
+  <section>
+    <h2>12. Append content</h2>
+    <p id="append">Text.</p><button id="append-btn">Append</button>
+  </section>
+
+  <section>
+    <h2>14 / 15. Fade Out / In</h2>
+    <div id="fade" style="width:120px;height:50px;border:1px solid #000">Fade box</div>
+    <button id="fade-out">Fade Out</button><button id="fade-in">Fade In</button>
+  </section>
+
+  <section>
+    <h2>16 / 17 Slide Up / Down</h2>
+    <div id="panel" style="background:#eee;padding:10px">Panel content</div>
+    <button id="slide-up">Slide Up</button><button id="slide-down">Slide Down</button>
+  </section>
+
+
+  <section>
+    <h2>19. Mouseover</h2>
+    <p id="demo-mouse">Hover me</p>
+  </section>
+
+  <section>
+    <h2>20. Click event to change text</h2>
+    <p id="demo-click">Click me</p>
+  </section>
+
+<script>
+document.getElementById('btn1').onclick = () => { document.getElementById('demo').innerText = 'Hello JavaScript!'; }
+$('#jq1').click(() => { $('#demo').text('Hello jQuery!'); });
+
+document.getElementById('bg-js').onclick = () => { document.getElementById('box').style.backgroundColor = 'lightblue'; }
+$('#bg-jq').click(() => { $('#box').css('background-color','lightblue'); });
+
+document.getElementById('hide-js').onclick = () => { document.getElementById('demo-hide').style.display='none'; }
+$('#hide-jq').click(() => { $('#demo-hide').hide(); });
+
+$('#toggle-jq').click(() => { $('#demo-toggle').toggle(); });
+
+$('#add-class').click(() => { $('#demo-class').addClass('highlight'); });
+$('#remove-class').click(() => { $('#demo-class').removeClass('highlight'); });
+$('#toggle-class').click(() => { $('#demo-class').toggleClass('highlight'); });
+
+$('#chg-img').click(() => { $('#myImg').attr('src','https://via.placeholder.com/150/FF0000/FFFFFF?text=New'); });
+
+$('#get-val').click(() => { alert($('#name').val()); });
+
+$('#append-btn').click(() => { $('#append').append(' Extra text!'); });
+
+$('#fade-out').click(() => { $('#fade').fadeOut(); });
+$('#fade-in').click(() => { $('#fade').fadeIn(); });
+
+$('#slide-up').click(() => { $('#panel').slideUp(); });
+$('#slide-down').click(() => { $('#panel').slideDown(); });
+
+$('#demo-mouse').mouseover(function(){ $(this).css('color','red'); }).mouseout(function(){ $(this).css('color',''); });
+$('#demo-click').click(function(){ $(this).text('You clicked me!'); });
+</script>
+</body>
+</html>
